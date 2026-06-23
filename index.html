@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Johna Gravitt — AI Collaboration Specialist, Accessibility Expert, and Conversational Designer. Portfolio and professional profile.">
+    <title>Johna Gravitt | AI Collaboration Portfolio</title>
+    <style>
+        /*
+         * Spiritbird Productions — "The Midnight Cosmos" Palette
+         * All color pairings verified against WCAG AAA (7:1 normal text, 4.5:1 large text)
+         *
+         * Background (midnight navy):  #0B1026  — luminance 0.0058
+         * Turquoise (name/links):      #40E0D0  — ratio 11.46:1 (AAA PASS)
+         * Mint green (section heads):  #98FF98  — ratio 15.31:1 (AAA PASS)
+         * White (body text):           #FFFFFF  — ratio 18.81:1 (AAA PASS)
+         * Powder blue (secondary text):#B0D4F1  — ratio 12.12:1 (AAA PASS)
+         * Rose gold (adjusted):        #CA959D  — ratio  7.43:1 (AAA PASS)
+         * Rose gold (decorative only): #B76E79  — ratio  4.94:1 (non-text 3:1 PASS)
+         */
+
+        /* === RESET & BASE === */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 100%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; animation: none !important; }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0B1026;
+            color: #FFFFFF;
+            line-height: 1.7;
+            font-size: 1.0625rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* === SKIP LINK === */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            background: #40E0D0;
+            color: #0B1026;
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            z-index: 1000;
+            border-radius: 0 0 0.5rem 0.5rem;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid #FFFFFF;
+            outline-offset: 2px;
+        }
+
+        /* === FOCUS INDICATORS === */
+        a:focus-visible,
+        button:focus-visible,
+        [tabindex]:focus-visible {
+            outline: 3px solid #40E0D0;
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        /* === NAV === */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(11, 16, 38, 0.95);
+            border-bottom: 1px solid #B76E79;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 0.875rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+
+        .nav-inner a {
+            color: #40E0D0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            padding: 0.375rem 0.875rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-inner a:hover {
+            background-color: rgba(64, 224, 208, 0.15);
+            color: #FFFFFF;
+        }
+
+        /* === LAYOUT === */
+        .container {
+            max-width: 52rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section + section {
+            border-top: 1px solid #B76E79;
+        }
+
+        /* === HERO === */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: #40E0D0;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
+        }
+
+        .hero .tagline {
+            color: #B0D4F1;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .hero blockquote {
+            color: #CA959D;
+            font-size: 1.125rem;
+            font-style: italic;
+            max-width: 36rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+            line-height: 1.6;
+        }
+
+        /* === SECTION HEADINGS === */
+        h2 {
+            color: #98FF98;
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.25;
+        }
+
+        h3 {
+            color: #40E0D0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        /* === TEXT === */
+        p {
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+
+        .subtle {
+            color: #B0D4F1;
+        }
+
+        strong {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        /* === LINKS === */
+        a {
+            color: #40E0D0;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #FFFFFF;
+        }
+
+        /* === LISTS === */
+        ul, ol {
+            margin: 0.75rem 0 1.5rem 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.625rem;
+            line-height: 1.7;
+        }
+
+        li strong {
+            color: #40E0D0;
+        }
+
+        /* === ABOUT SECTION === */
+        .about-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            max-width: 44rem;
+        }
+
+        /* === PORTFOLIO SUBSECTIONS === */
+        .portfolio-subsection {
+            margin-bottom: 2.5rem;
+        }
+
+        .portfolio-subsection:last-child {
+            margin-bottom: 0;
+        }
+
+        /* === CREDENTIALS === */
+        .credential-list {
+            list-style: none;
+            margin-left: 0;
+            padding: 0;
+        }
+
+        .credential-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(183, 110, 121, 0.3);
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+
+        .credential-list li:last-child {
+            border-bottom: none;
+        }
+
+        .credential-list li::before {
+            content: "✦";
+            color: #CA959D;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        /* === SPIRITBIRD SECTION === */
+        .spiritbird-tagline {
+            color: #CA959D;
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-top: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* === CLOSING STATEMENT === */
+        .closing-statement {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid #B76E79;
+        }
+
+        .closing-statement p {
+            color: #40E0D0;
+            font-size: 1.375rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        .closing-sub {
+            color: #B0D4F1;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 0.25rem;
+        }
+
+        /* === FOOTER === */
+        .site-footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid #B76E79;
+        }
+
+        .footer-contact {
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact a {
+            display: inline-block;
+            margin: 0.25rem 0.75rem;
+            font-size: 1rem;
+        }
+
+        .footer-logo {
+            width: 80px;
+            height: auto;
+            margin: 1.5rem auto;
+            display: block;
+            border-radius: 0.5rem;
+        }
+
+        .footer-copyright {
+            color: #CA959D;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        /* === DIVIDER === */
+        .section-divider {
+            border: none;
+            height: 1px;
+            background-color: #B76E79;
+            margin: 2rem 0;
+            opacity: 0.6;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .nav-inner {
+                padding: 0.625rem 1rem;
+                gap: 0.125rem;
+            }
+
+            .nav-inner a {
+                font-size: 0.8125rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            .credential-list li {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Skip to Content -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Navigation -->
+<nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#spiritbird">Spiritbird Productions</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero container">
+    <h1>Johna Gravitt</h1>
+    <p class="tagline">AI Collaboration Specialist &nbsp;|&nbsp; Accessibility Expert &nbsp;|&nbsp; Conversational Designer</p>
+    <blockquote>
+        <p>&ldquo;The best work happens when AI and I meet each other halfway.&rdquo;</p>
+    </blockquote>
+</header>
+
+<!-- Main Content -->
+<main id="main-content">
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-heading">
+        <div class="container">
+            <h2 id="about-heading">About</h2>
+            <div class="about-text">
+                <p>I chase knowledge the way some people chase promotions &mdash; it&rsquo;s just how I&rsquo;m wired. I never stop asking why. I am blind, a 12-year talent acquisition professional, and a daily AI collaborator with 255+ documented hours and growing. I use JAWS, NVDA, and VoiceOver to navigate every digital tool I touch.</p>
+                <p>I am a natural conversational designer. I think out loud, type unfiltered, and constantly refine how AI communicates through real-time interaction. This is not a learned technique &mdash; it is how my brain works.</p>
+                <p>My disability is not a limitation I overcome &mdash; it&rsquo;s a lens that makes me better at this work. When you navigate technology through a screen reader every day, you catch things sighted users never think to test. Combine that with 12 years of talent acquisition instinct, and you get someone who brings the human perspective to a field that desperately needs it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" aria-labelledby="portfolio-heading">
+        <div class="container">
+            <h2 id="portfolio-heading">AI Collaboration Portfolio</h2>
+
+            <!-- MediTrust -->
+            <div class="portfolio-subsection">
+                <h3>MediTrust: First Shipped AI-Directed Production</h3>
+                <p>MediTrust is a professional narrated presentation built entirely through human-AI collaboration. It was produced under Spiritbird Productions as its first shipped product.</p>
+
+                <p><strong>How it was built:</strong> Every element of MediTrust was directed through conversation with AI: the research, the script, the slide design, the narration, and the final packaging.</p>
+
+                <p><strong>What this demonstrates:</strong></p>
+                <ul>
+                    <li><strong>Production direction:</strong> Ability to direct complex, multi-format production through AI</li>
+                    <li><strong>Real output:</strong> Real deliverable shipped to a real client &mdash; not a demo or exercise</li>
+                    <li><strong>Conversational workflow:</strong> Iterative refinement through conversation, not code or visual editing</li>
+                    <li><strong>Business context:</strong> Built through Spiritbird Productions, establishing a production entity</li>
+                </ul>
+            </div>
+
+            <!-- Conversational AI Design -->
+            <div class="portfolio-subsection">
+                <h3>Conversational AI Design</h3>
+                <p>I do not just use AI tools. I co-design them. Through daily interaction, I have shaped persistent AI-powered products that serve real needs in my life.</p>
+
+                <p><strong>Products I co-designed:</strong></p>
+                <ul>
+                    <li><strong>Music Studio:</strong> A fully accessible, browser-based audio production environment. Used for real client work including stem separation, remixing, vocal isolation, and mix engineering.</li>
+                    <li><strong>Cookbook:</strong> A digital cookbook with 260+ recipes, organized by category, searchable, and designed for screen reader navigation. Built to become a family heirloom.</li>
+                    <li><strong>Health Tracker:</strong> A medication tracking system with compound profiles, dosage data, session logging, and personal insights. Designed through real daily use.</li>
+                    <li><strong>Game Room:</strong> Accessible brain games designed for screen reader users, including word games and trivia formats built for cognitive engagement.</li>
+                </ul>
+
+                <p><strong>Production and research work:</strong></p>
+                <ul>
+                    <li><strong>FIA Content Curation:</strong> Researched, compiled, and organized 19 Friends in Art recordings spanning 2016 to 2025 from ACBMedia.org archives. This involved identifying, verifying, and structuring audio content for accessibility and preservation.</li>
+                    <li><strong>Blurred Lines Podcast:</strong> Currently in production &mdash; a music-centered podcast that explores why songs matter to people and the personal connections behind them. Features conversations with everyday people, each guest given a platform to share something they&rsquo;re passionate about. All production directed through AI collaboration: guest coordination, episode planning, cover art, and recording setup.</li>
+                </ul>
+
+                <p><strong>Human-AI collaborative work:</strong> I direct AI through conversation across everything I do &mdash; from audio production workflows like stem isolation and remixing, to job search strategy, document creation, professional communication, and research. This is not button-clicking. It is creative direction through dialogue &mdash; the same skill set that drives conversational AI design, applied to real life.</p>
+            </div>
+
+            <!-- Accessibility + AI -->
+            <div class="portfolio-subsection">
+                <h3>Accessibility + AI</h3>
+                <p>Accessibility is not just about blindness. It is about every disability, every barrier, and every assumption baked into technology that someone forgot to question.</p>
+
+                <p><strong>What I catch that others miss:</strong></p>
+                <ul>
+                    <li><strong>Screen reader expertise:</strong> I test every AI interface with JAWS, NVDA, and VoiceOver. I know when a heading structure is broken, when a button has no label, when a workflow assumes sight.</li>
+                    <li><strong>Practical solutions:</strong> I do not just flag problems. I describe exactly what the fix should be &mdash; in plain language a developer can act on.</li>
+                    <li><strong>AI output evaluation:</strong> I evaluate AI outputs not just for accuracy but for accessibility: Does this actually work for someone who can&rsquo;t see the screen?</li>
+                </ul>
+
+                <p>Disability is a strength in this work, not a checkbox. What I navigate every day is exactly what makes AI products better for everyone.</p>
+            </div>
+
+            <!-- AI Tool Fluency -->
+            <div class="portfolio-subsection">
+                <h3>AI Tool Fluency</h3>
+                <p>I work across multiple AI platforms daily, not as a casual user but as someone who pushes each tool to its limits and understands where one ends and another begins.</p>
+
+                <ul>
+                    <li><strong>Prompt engineering:</strong> Crafting precise, iterative prompts that get specific results. I know how to guide AI toward the output I need, and how to adjust when it misses.</li>
+                    <li><strong>Image generation:</strong> Directing AI image generation for professional and creative outputs, including product visuals, presentation graphics, and artistic concepts.</li>
+                    <li><strong>Conversational design:</strong> Shaping AI behavior, personality, and response patterns through sustained interaction. Building AI personas that are consistent, useful, and human.</li>
+                    <li><strong>Accessibility testing:</strong> Navigating and stress-testing AI tools with assistive technology, identifying accessibility barriers, and providing actionable feedback.</li>
+                </ul>
+            </div>
+
+            <!-- Closing Statement -->
+            <div class="closing-statement">
+                <p>I don&rsquo;t just talk to AI. I make AI better.</p>
+                <p class="closing-sub">The partnership is the product.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials -->
+    <section id="credentials" aria-labelledby="credentials-heading">
+        <div class="container">
+            <h2 id="credentials-heading">Credentials</h2>
+            <ul class="credential-list">
+                <li>Google AI Professional Certificate &mdash; all 7 courses completed (Coursera, 2026)</li>
+                <li>255+ hours of documented AI collaboration and growing</li>
+                <li>12 years in talent acquisition across recruiting, talent operations, and workforce development</li>
+                <li>JAWS, NVDA, and VoiceOver power user &mdash; daily screen reader expertise</li>
+                <li>Active AI practitioner across productivity, creative production, research, and accessibility testing</li>
+                <li><a href="https://www.linkedin.com/in/johna-gravitt-8a9745179/" target="_blank" rel="noopener noreferrer">View full professional profile on LinkedIn</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Spiritbird Productions -->
+    <section id="spiritbird" aria-labelledby="spiritbird-heading">
+        <div class="container">
+            <h2 id="spiritbird-heading">Spiritbird Productions</h2>
+            <p>Spiritbird Productions is the creative studio behind everything I build. From professional presentations to audio production and podcast development, every project is crafted with intention, accessibility, and a commitment to amplifying voices that deserve to be heard.</p>
+            <p>MediTrust, the first shipped client project (June 2026), established Spiritbird Productions as a working production entity &mdash; proof that human-AI collaboration can deliver real, professional results.</p>
+            <p class="spiritbird-tagline">Born to Fly, Built to Create</p>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer / Contact -->
+<footer id="contact" class="site-footer" aria-label="Contact information">
+    <div class="container">
+        <h2 id="contact-heading" class="sr-only">Contact</h2>
+        <div class="footer-contact">
+            <a href="mailto:johna.gravitt@outlook.com">johna.gravitt@outlook.com</a>
+            <a href="https://www.linkedin.com/in/johna-gravitt-8a9745179/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <img
+            src="spiritbird-logo.jpg"
+            alt="Spiritbird Productions logo: a white dove with turquoise eyes and butterfly galaxy wings in shades of turquoise, midnight navy, and rose gold stars"
+            class="footer-logo"
+            width="80"
+            height="80"
+            loading="lazy"
+        >
+        <p class="footer-copyright">&copy; 2026 Spiritbird Productions</p>
+    </div>
+</footer>
+
+<!-- Visually hidden class for screen-reader-only content -->
+<style>
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+</style>
+
+</body>
+</html>
